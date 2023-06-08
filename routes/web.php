@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'MainController@home');
+Route::get('/basket', 'MainController@basket');
+Route::get('/order', 'MainController@order');
