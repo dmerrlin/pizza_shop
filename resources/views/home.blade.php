@@ -15,7 +15,19 @@
         </div>
         <div class="container">
             <div class="row data-price">
-
+                @foreach($menu as $pizza)
+                    <div class="col-4 row">
+                        <div class="thumb col-4">
+                            <img style="max-width: 100px" src="/img/pizza/{{$pizza->filename}}">
+                        </div>
+                        <div class="info col-8">
+                            <h3>{{$pizza->name}}</h3>
+                            <p>{{$pizza->info}}</p>
+                            <span>{{$pizza->price}}</span>
+                            <button class="buy" data_id_buy = "{{$pizza->id}}" >В корзину</button>
+                        </div>
+                    </div>
+                @endforeach
 
             </div>
         </div>
