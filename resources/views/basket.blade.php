@@ -1,27 +1,18 @@
-@extends('layout')
+@extends('layouts.app')
 
 @section('title')Корзина@endsection
-
 @section('main_content')
-    <div class="m-5">
-        <div class="container-fluid center">
-            <div class="row">
-                <div class="col-12">
-                    <table class="table table-responsive">
-                        <thead>
-                        <tr>
-                            <th>Название</th>
-                            <th>Цена</th>
-                            <th>Количество</th>
-                        </tr>
-                        </thead>
-                        <tbody id = 'basket_info'>
+    <template>
 
-                        </tbody>
-                    </table>
-                </div>
+        <div class="flex-center position-ref full-height">
+            <div class="content">
+                <basket-component>
+
+                </basket-component>
             </div>
         </div>
-    </div>
 
+    </template>
 @endsection
+
+

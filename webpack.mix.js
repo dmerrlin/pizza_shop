@@ -1,5 +1,5 @@
 const mix = require('laravel-mix');
-
+import vue from "@vitejs/plugin-vue"
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
