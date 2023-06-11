@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\menu;
+use App\Order;
 use Illuminate\Http\Request;
 
 class MainController extends Controller

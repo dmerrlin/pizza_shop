@@ -1,6 +1,9 @@
 <template>
     <div class="container">
-        <div class="row data-price">
+        <div v-if="basket.length == 0" class="text-center m-5 p-5">
+            <h1>КОРЗИНА ПУСТА</h1>
+        </div>
+        <div v-else class="row data-price">
             <div v-for="pizza in basket" class="col-12 row m-2">
                 <div class="thumb col-2">
                     <img style="max-width: 100px" :src="'/img/pizza/' + pizza.filename">
@@ -9,22 +12,25 @@
                     <h3>{{ pizza.name }}</h3>
                 </div>
                 <div class="col-2">
-                    <span>{{ pizza.price * pizza.qty }}</span>
+                    <h4>{{ pizza.price * pizza.qty }}</h4>
                 </div>
-                <div class="col-4 row">
-                    <div class="col-2">
-                        <button @click.prevent="addToBasket(pizza.id)">+</button>
-                    </div>
-                    <div class="col-4 text-center">
-                        <span>{{ pizza.qty }}</span>
-                    </div>
-                    <div class="col-2">
-                        <button @click.prevent="removeToBasket(pizza.id)">-</button>
+                <div class="col-4">
+                    <div class="quantity_inner">
+                        <button @click.prevent="removeToBasket(pizza.id)" class="bt_minus">
+                            <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                        </button>
+                        <input type="text" :value="pizza.qty" size="2" class="quantity" data-max-count="20" />
+                        <button  @click.prevent="addToBasket(pizza.id)" class="bt_plus">
+                            <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                        </button>
                     </div>
                 </div>
             </div>
+            <div class="text-center p-4">
+                <a href="/order" class="btn btn-primary">Перейти к оформлению</a>
+            </div>
         </div>
-        </div>
+    </div>
 </template>
 
 <script>
@@ -44,7 +50,7 @@ export default {
             if(basket){
                 basket = JSON.parse(basket)
 
-                axios.get('http://127.0.0.1:8000/api/products')
+                axios.get('/api/products')
                     .then( res => {
                         let pizzas = res.data.data;
                         basket.forEach(product => {
