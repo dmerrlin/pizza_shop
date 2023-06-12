@@ -37,13 +37,12 @@ class BasketRule implements Rule
            if(!isset($product['id'], $product['qty'])){
                 return false;
            }
-
             //Если какого-то товара меньше 1, то в корзину вносились изменения
             if($product['qty'] <= 0){
                 return false;
             }
             //Если id заказа или количество не число, то возвращаем ошибку
-            if(is_numeric($product['id']) && is_numeric($product['qty'])){
+            if(is_int($product['id']) && is_int($product['qty'])){
                 $product_ids[] = $product['id'];
                 $basket[$product['id']] = $product['qty'];
             }else{
