@@ -8,15 +8,19 @@
                 <button @click.prevent="sortUp">Цена возрастание</button>
                 <button @click.prevent="sortDown">Цена убывание</button>
             </div>
-            <div v-for="pizza in pizzas" class="col-6 mb-3 row">
-                <div class="thumb col-4">
-                    <img style="max-width: 100%" :src="'/img/pizza/' + pizza.filename">
-                </div>
-                <div class="info col-8 row">
-                    <h3 class="col-12">{{ pizza.name }}</h3>
-                    <p class="col-12">{{ pizza.info }}</p>
-                    <h4 class="col-4 text-center">{{ pizza.price }}</h4>
-                    <button class="col-6 btn btn-primary" @click.prevent="addToBasket(pizza.id)">В корзину</button>
+            <div v-for="pizza in pizzas" class="col-xl-6 mb-3">
+                <div class="row"> 
+                    <div class="thumb col-4">
+                        <img style="max-width: 100%" :src="'/img/pizza/' + pizza.filename">
+                    </div>
+                    <div class="info col-8">
+                        <div class="row"> 
+                            <h3 class="col-12">{{ pizza.name }}</h3>
+                            <p class="col-12">{{ pizza.info }}</p>
+                            <h4 class="col-4 text-center">{{ pizza.price }}</h4>
+                            <button class="col-6 btn btn-primary" @click.prevent="addToBasket(pizza.id)">В корзину</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
