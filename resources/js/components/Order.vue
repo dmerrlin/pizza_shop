@@ -1,10 +1,10 @@
 <template>
     <div class="container">
-        <div v-if="order_id != 0" class="text-center m-5 p-5">
+        <div v-if="order_id !== 0" class="text-center m-5 p-5">
             <h3>Заказ {{ order_id }} принят в работу!</h3>
             <h3>В ближайшее время с вами свяжутся по оставленному вами номеру</h3>
         </div>
-        <div v-else-if="basket.length == 0" class="text-center m-5 p-5">
+        <div v-else-if="basket.length === 0" class="text-center m-5 p-5">
             <h1>КОРЗИНА ПУСТА</h1>
         </div>
         <div v-else class="row">
@@ -12,9 +12,13 @@
                 <div class="mx-3 mb-3 cart-title cart-title">
                     <h2>Введите ваши данные</h2>
                 </div>
-                <div v-if="err" class="alert-danger mb-2">
-                    <div v-for="error in err" class="text-center p-1">
-                        <span>{{ error[0] }}</span>
+                <div v-if="err.length !== 0" class="mb-2">
+                    <div class="alert alert-danger">
+                        <div v-for="error in err">
+                            <div v-for="e in error" class="text-center p-1">
+                                <span>{{ e }}</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <form>
@@ -88,7 +92,7 @@ export default {
                     .then( res => {
                         let pizzas = res.data.data;
                         basket.forEach(product => {
-                            let pizza = pizzas.find(pizza => pizza.id == product.id)
+                            let pizza = pizzas.find(pizza => pizza.id === product.id)
                             Object.assign(product, pizza)
                         })
 
@@ -108,23 +112,18 @@ export default {
                 'total_price': this.totalPrice
             })
                 .then(res =>{
-                  if(res.status == 201){
+                  if(res.status === 201){
                       localStorage.removeItem('basket')
-                      console.log(res.data)
                       this.order_id = res.data.data.id
                   }
                 }).catch(error => {
                     if (error.response) {
                         this.err = error.response.data.errors
-                        console.log(this.err)
                     } else if (error.request) {
                        alert('Сервер оформление заказа не доступен. Повторите попыту позжу')
                     } else {
                         alert('Произошла непредвиденная ошибка')
                     }
-                })
-                .finally(v => {
-                    $(document).trigger('changed')
                 })
         }
     }

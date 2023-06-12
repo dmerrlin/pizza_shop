@@ -2024,7 +2024,7 @@ __webpack_require__.r(__webpack_exports__);
           var pizzas = res.data.data;
           basket.forEach(function (product) {
             var pizza = pizzas.find(function (pizza) {
-              return pizza.id == product.id;
+              return pizza.id === product.id;
             });
             Object.assign(product, pizza);
           });
@@ -2043,22 +2043,18 @@ __webpack_require__.r(__webpack_exports__);
         'address': this.address,
         'total_price': this.totalPrice
       }).then(function (res) {
-        if (res.status == 201) {
+        if (res.status === 201) {
           localStorage.removeItem('basket');
-          console.log(res.data);
           _this2.order_id = res.data.data.id;
         }
       })["catch"](function (error) {
         if (error.response) {
           _this2.err = error.response.data.errors;
-          console.log(_this2.err);
         } else if (error.request) {
           alert('Сервер оформление заказа не доступен. Повторите попыту позжу');
         } else {
           alert('Произошла непредвиденная ошибка');
         }
-      })["finally"](function (v) {
-        $(document).trigger('changed');
       });
     }
   }
@@ -2257,21 +2253,25 @@ var render = function render() {
     _c = _vm._self._c;
   return _c("div", {
     staticClass: "container"
-  }, [_vm.order_id != 0 ? _c("div", {
+  }, [_vm.order_id !== 0 ? _c("div", {
     staticClass: "text-center m-5 p-5"
-  }, [_c("h3", [_vm._v("Заказ " + _vm._s(_vm.order_id) + " принят в работу!")]), _vm._v(" "), _c("h3", [_vm._v("В ближайшее время с вами свяжутся по оставленному вами номеру")])]) : _vm.basket.length == 0 ? _c("div", {
+  }, [_c("h3", [_vm._v("Заказ " + _vm._s(_vm.order_id) + " принят в работу!")]), _vm._v(" "), _c("h3", [_vm._v("В ближайшее время с вами свяжутся по оставленному вами номеру")])]) : _vm.basket.length === 0 ? _c("div", {
     staticClass: "text-center m-5 p-5"
   }, [_c("h1", [_vm._v("КОРЗИНА ПУСТА")])]) : _c("div", {
     staticClass: "row"
   }, [_c("div", {
     staticClass: "col-12 col-lg-12"
-  }, [_vm._m(0), _vm._v(" "), _vm.err ? _c("div", {
-    staticClass: "alert-danger mb-2"
+  }, [_vm._m(0), _vm._v(" "), _vm.err.length !== 0 ? _c("div", {
+    staticClass: "mb-2"
+  }, [_c("div", {
+    staticClass: "alert alert-danger"
   }, _vm._l(_vm.err, function (error) {
-    return _c("div", {
-      staticClass: "text-center p-1"
-    }, [_c("span", [_vm._v(_vm._s(error[0]))])]);
-  }), 0) : _vm._e(), _vm._v(" "), _c("form", [_c("div", {
+    return _c("div", _vm._l(error, function (e) {
+      return _c("div", {
+        staticClass: "text-center p-1"
+      }, [_c("span", [_vm._v(_vm._s(e))])]);
+    }), 0);
+  }), 0)]) : _vm._e(), _vm._v(" "), _c("form", [_c("div", {
     staticClass: "row"
   }, [_c("div", {
     staticClass: "col-12 mb-3"
