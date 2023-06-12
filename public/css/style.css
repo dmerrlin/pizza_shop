@@ -381,7 +381,7 @@
 @media (max-width: 767px) {
     /* line 43, ../../Arafath/CL/December/229. Restaurant (Burger)/HTML/scss/_header.scss */
     .header-area .main-header-area .logo-img img {
-        width: 70px;
+        width: 50px;
     }
 }
 
@@ -395,7 +395,7 @@
 @media (min-width: 992px) and (max-width: 1200px) {
     /* line 43, ../../Arafath/CL/December/229. Restaurant (Burger)/HTML/scss/_header.scss */
     .header-area .main-header-area .logo-img img {
-        width: 100%;
+        width: 90px;
     }
 }
 

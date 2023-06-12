@@ -18,7 +18,7 @@
             <div class="container-fluid p-0">
                 <div class="row align-items-center no-gutters">
                     <div class="col-xl-5 col-lg-5">
-                        <div class="main-menu  d-none d-lg-block">
+                        <div class="main-menu d-lg-block">
                             <nav>
                                 <ul id="navigation">
                                     <li><a href="/">Меню</a></li>

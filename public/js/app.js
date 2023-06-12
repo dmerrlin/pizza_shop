@@ -2146,7 +2146,7 @@ var render = function render() {
     return _c("div", {
       staticClass: "col-12 row m-2"
     }, [_c("div", {
-      staticClass: "thumb col-2"
+      staticClass: "thumb col-xl-2"
     }, [_c("img", {
       staticStyle: {
         "max-width": "100px"
@@ -2155,11 +2155,11 @@ var render = function render() {
         src: "/img/pizza/" + pizza.filename
       }
     })]), _vm._v(" "), _c("div", {
-      staticClass: "col-4"
+      staticClass: "col-xl-4"
     }, [_c("h3", [_vm._v(_vm._s(pizza.name))])]), _vm._v(" "), _c("div", {
-      staticClass: "col-2"
+      staticClass: "col-xl-2"
     }, [_c("h4", [_vm._v(_vm._s(pizza.price * pizza.qty))])]), _vm._v(" "), _c("div", {
-      staticClass: "col-4"
+      staticClass: "col-xl-4"
     }, [_c("div", {
       staticClass: "quantity_inner"
     }, [_c("button", {
@@ -2441,7 +2441,9 @@ var render = function render() {
     }
   }, [_vm._v("Цена убывание")])]), _vm._v(" "), _vm._l(_vm.pizzas, function (pizza) {
     return _c("div", {
-      staticClass: "col-6 mb-3 row"
+      staticClass: "col-xl-6 mb-3"
+    }, [_c("div", {
+      staticClass: "row"
     }, [_c("div", {
       staticClass: "thumb col-4"
     }, [_c("img", {
@@ -2452,7 +2454,9 @@ var render = function render() {
         src: "/img/pizza/" + pizza.filename
       }
     })]), _vm._v(" "), _c("div", {
-      staticClass: "info col-8 row"
+      staticClass: "info col-8"
+    }, [_c("div", {
+      staticClass: "row"
     }, [_c("h3", {
       staticClass: "col-12"
     }, [_vm._v(_vm._s(pizza.name))]), _vm._v(" "), _c("p", {
@@ -2467,7 +2471,7 @@ var render = function render() {
           return _vm.addToBasket(pizza.id);
         }
       }
-    }, [_vm._v("В корзину")])])]);
+    }, [_vm._v("В корзину")])])])])]);
   })], 2)]);
 };
 var staticRenderFns = [];
@@ -50196,8 +50200,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\dmerr\PhpstormProjects\pizza_shop\pizza_shop\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\dmerr\PhpstormProjects\pizza_shop\pizza_shop\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\pizza_shop\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\pizza_shop\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

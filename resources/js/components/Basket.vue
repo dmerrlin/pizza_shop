@@ -5,16 +5,16 @@
         </div>
         <div v-else class="row data-price">
             <div v-for="pizza in basket" class="col-12 row m-2">
-                <div class="thumb col-2">
+                <div class="thumb col-xl-2">
                     <img style="max-width: 100px" :src="'/img/pizza/' + pizza.filename">
                 </div>
-                <div class="col-4">
+                <div class="col-xl-4">
                     <h3>{{ pizza.name }}</h3>
                 </div>
-                <div class="col-2">
+                <div class="col-xl-2">
                     <h4>{{ pizza.price * pizza.qty }}</h4>
                 </div>
-                <div class="col-4">
+                <div class="col-xl-4">
                     <div class="quantity_inner">
                         <button @click.prevent="removeToBasket(pizza.id)" class="bt_minus">
                             <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line></svg>
